@@ -1,0 +1,40 @@
+<div id="page-title">
+    <h1 >
+        Cadastre seu produto 
+    </h1>
+    <form class="form" action="/realTime" method="post">
+    <input class="form-control" type="text" name="code" id="code" placeholder="código" >
+    <input class="form-control" type="text" name="title" id="title" placeholder="título">
+    <input class="form-control" type="text" name="description" id="description" placeholder="Descrição">
+    <input class="form-control" type="text" name="price" id="price" placeholder="Preço">
+    <input class="form-control" type="text" name="stock" id="stock" placeholder="Estoque">
+    <input class="form-control" type="text" name="thumb" id="Thumbmail" placeholder="Thumbmail">
+    <input class="form-control" type="text" name="status" id="status" placeholder="status">
+    <button class="button" type="submit">Enviar</button>
+    </form>
+    <h2>
+        Produtos cadastrados 
+    </h2>
+    <div id="updatedProdTable">
+        <table  id="productsTable">
+            <thead class="tabela">
+                <tr>
+                <th>ID</th>
+                <th>title</th>
+                <th>description</th>
+                <th>Price</th>
+                <th>code</th>
+                <th>Stock</th>
+                <th>Thumbmail</th>
+                <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="index.js"></script>
