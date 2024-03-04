@@ -5,6 +5,8 @@ const updateProductTable = (productsData) => {
   console.log(productsData);
   const tableBody = document.querySelector("#productsTable tbody");
 
+  tableBody.innerHTML = '';
+
   // Iterate through the products and create new rows
   productsData.forEach((product) => {
     const row = document.createElement("tr");
@@ -16,7 +18,7 @@ const updateProductTable = (productsData) => {
       <td>${product.price}</td>
       <td>${product.stock}</td>
       <td><img src= ${product.thumbmail} alt=${product.title}></td>
-      <td> <button onclick="handleDelete">X</button> </td>
+      <td> <button onclick="handleDelete(${product.id})">X</button> </td>
       
     `;
     tableBody.appendChild(row);
@@ -31,3 +33,8 @@ socket.on("Updated_Products", (data) => {
     console.log(error);
   }
 });
+
+const handleDelete = (id) => {
+  socket.emit("delete", { id });
+  window.location.reload();
+};
