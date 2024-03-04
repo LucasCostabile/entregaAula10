@@ -42,7 +42,7 @@ const io = new Server(server);
 
 io.on("connection", (socket) => {
     console.log("Usuario conectado");
-    socket.on("Message", (data) => console.log(data));
+    
   
     const sendUpdatedProds = async () => {
       const productsList = await prodManager.readProductsFromFile();
@@ -50,6 +50,11 @@ io.on("connection", (socket) => {
     };
   
     sendUpdatedProds().then();
+
+    socket.on("delete", (data) => {
+      const { id } = data;
+      prodManager.deleteProductById(id);
+    });
   });
 
 export default server;
